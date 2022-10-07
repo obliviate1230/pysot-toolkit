@@ -5,6 +5,9 @@ from .lasot import LaSOTDataset
 from .nfs import NFSDataset
 from .trackingnet import TrackingNetDataset
 from .got10k import GOT10kDataset
+from .dtb70 import DTB70Dataset
+from .uavdt import UAVDTDataset
+from .uav123_10fps import UAV123_10FPSDataset
 
 class DatasetFactory(object):
     @staticmethod
@@ -24,8 +27,16 @@ class DatasetFactory(object):
             dataset = OTBDataset(**kwargs)
         elif 'LaSOT' == name:
             dataset = LaSOTDataset(**kwargs)
-        elif 'UAV' in name:
+        elif 'UAV123' == name:
             dataset = UAVDataset(**kwargs)
+        elif 'UAV20L' == name:
+            dataset = UAVDataset(**kwargs)
+        elif 'DTB70' == name:
+            dataset = DTB70Dataset(**kwargs)
+        elif 'UAVDT' == name:
+            dataset = UAVDTDataset(**kwargs)
+        elif 'UAV123_10fps' == name:
+            dataset = UAV123_10FPSDataset(**kwargs)
         elif 'NFS' in name:
             dataset = NFSDataset(**kwargs)
         elif 'VOT2018' == name or 'VOT2016' == name:
